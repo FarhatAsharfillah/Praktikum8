@@ -1,70 +1,31 @@
-package com.example.praktikum8.ui.theme.view.uicontroller
+package com.example.praktikum8.view.uicontroller
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.example.praktikum8.ui.theme.view.Beranda
-import com.example.praktikum8.ui.theme.view.FormIsian
-import com.example.praktikum8.ui.theme.view.TampilData
+import com.example.praktikum8.model.DataJK.JenisK
+import com.example.praktikum8.view.FormIsian
+import com.example.praktikum8.view.TampilSiswa
+import com.example.praktikum8.viewmodel.SiswaViewModel
 
-// Enum untuk daftar screen
 enum class Navigasi {
-    Beranda,
     Formulirku,
     Detail
 }
 
 @Composable
-fun DataApp(
-    navController: NavHostController = rememberNavController(),
-    modifier: Modifier = Modifier
-) {
-    Scaffold { isiRuang ->
-        NavHost(
-            navController = navController,
-            startDestination = Navigasi.Beranda.name,
-            modifier = Modifier.padding(isiRuang)
-        ) {
+fun SiswaApp(
+    //edit 1: parameter viewModel
+    modifier: Modifier,
+    viewModel: SiswaViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+){
 
-            composable(Navigasi.Beranda.name) {
-                Beranda(
-                    onSubmitClick = {
-                        navController.navigate(Navigasi.Formulirku.name)
-                    }
-                )
-            }
-
-
-            composable(Navigasi.Formulirku.name) {
-                FormIsian(navController = navController)
-            }
-
-
-            composable(
-                route = "Detail/{nama}/{jenisKelamin}/{alamat}",
-                arguments = listOf(
-                    navArgument("nama") { defaultValue = "" },
-                    navArgument("jenisKelamin") { defaultValue = "" },
-                    navArgument("alamat") { defaultValue = "" }
-                )
-            ) { backStackEntry ->
-                val nama = backStackEntry.arguments?.getString("nama")
-                val jenisKelamin = backStackEntry.arguments?.getString("jenisKelamin")
-                val alamat = backStackEntry.arguments?.getString("alamat")
-
-                TampilData(
-                    navController = navController,
-                    nama = nama,
-                    jenisKelamin = jenisKelamin,
-                    alamat = alamat
-                )
-            }
-        }
-    }
-}
