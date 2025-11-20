@@ -1,4 +1,4 @@
-package com.example.praktikum8
+package com.example.praktikum8.ui.theme.view.uicontroller
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
