@@ -1,4 +1,4 @@
-package com.example.questnavigasitugas_093.ui.theme.view
+package com.example.praktikum8.ui.theme.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -11,7 +11,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.questnavigasitugas_093.R
+import com.example.praktikum8.R
 
 @Composable
 fun Beranda(

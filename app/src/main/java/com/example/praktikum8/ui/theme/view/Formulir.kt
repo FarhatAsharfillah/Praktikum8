@@ -11,7 +11,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.questnavigasitugas_093.R
+import com.example.praktikum8.R
 import kotlin.collections.forEach
 
 @OptIn(ExperimentalMaterial3Api::class)
