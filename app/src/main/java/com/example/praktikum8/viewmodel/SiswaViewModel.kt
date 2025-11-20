@@ -1,4 +1,4 @@
-package com.example.praktikum8.ui.theme.viewmodel
+package com.example.praktikum8.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.praktikum8.model.Siswa
